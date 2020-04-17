@@ -1,0 +1,5 @@
+"TOA5","CR6Series","CR6","10158","CR6.Std.09.02 CR6-WIFI.04.00.01","CPU:McGill_University_Program_Version33 April 16th 2020.CR6","8561","CS725_6Hour"
+"TIMESTAMP","RECORD","CS725_TIME_String","CS725_StationID","CS725_SerialNum","CS725_K_Counts","CS725_TL_Counts","CS725_SWE_K","CS725_K_TL_Ratio","CS725_SWE_TL","CS725_Crystal_TEMP_MIN","CS725_Crystal_TEMP_MAX","CS725_Hist_Blocks","CS725_K_Disp","CS725_PWR_Volt"
+"TS","RN","","","","","","","","","","","","",""
+"","","Smp","Smp","Smp","Smp","Smp","Smp","Smp","Smp","Smp","Smp","Smp","Smp","Smp"
+"2020-04-17 00:30:00",0,"2020-04-16 17:59","Gault",1230,521162,167748,-4,21,-11,6,8,24,-7,11.7
