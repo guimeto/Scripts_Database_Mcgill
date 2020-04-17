@@ -42,7 +42,7 @@ IceAcc_Data = read_CR6Series_IceAcc_Data(IceAcc_Data)
 CS120A_Data = read_CR6Series_CS120A_Data(CS120A_Data)
 
 for i in range(5,0,-1):
-    queryReleveMeteo = ("INSERT INTO gault_metdata (date,"
+    queryReleveMeteo = ("INSERT IGNORE INTO gault_metdata (date,"
                             "LWMDry_Tot, LWMCon_Tot, LWMWet_Tot, WS_ms, Mean_WindDir, WindDir_SD,  WS_ms_Max, WindDir_Max, CMP10_Solar_uWm2_Avg,"
                             "Temp1_Avg, Temp2_Avg, Temp3_Avg, Temp4_Avg, Temp5_Avg, Temp6_Avg, Temp7_Avg, Temp8_Avg,"
                             "RH1, RH2, RH3, RH4, RH5, RH6, RH7, RH8,"
