@@ -98,5 +98,5 @@ cbZe.set_ticks([-7,-6,-5,-4])
 cbZe.set_ticklabels([r'$10^{-7}$',r'$10^{-6}$',r'$10^{-5}$',r'$10^{-4}$'])
 plt.tight_layout()
 
-plt.savefig('CS135.png', format='png',bbox_to_anchor='tight' )
+plt.savefig('CS135_2.png', format='png',bbox_to_anchor='tight' )
 
