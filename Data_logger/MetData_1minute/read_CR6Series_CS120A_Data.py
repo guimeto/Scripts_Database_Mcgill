@@ -54,12 +54,12 @@ def read_CR6Series_CS120A_Data(filename):
     return(CR6Series_CS120A_Data)
         
 # Tips to print columns names and index    
-#file1 = 'K:/PROJETS/PROJET_Mcgill/Data_logger/Preparation_DataBase/data_brute/CR6Series_CS120A_Data.dat'   
-#CR6Series_CS120A_Data  = pd.read_csv(file1, sep=",", skiprows=[0,2,3]) 
-#headers = pd.read_csv(file1, sep=",", skiprows=[0])   
-#for col in list(CR6Series_CS120A_Data.columns.values):
-#    print('['+str(CR6Series_CS120A_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )
-#    
+filename = 'CR6Series_CS120A_Data.dat'   
+CR6Series_CS120A_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
+headers = pd.read_csv(filename, sep=",", skiprows=[0])   
+for col in list(CR6Series_CS120A_Data.columns.values):
+    print('['+str(CR6Series_CS120A_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )
+    
 
 		
 	

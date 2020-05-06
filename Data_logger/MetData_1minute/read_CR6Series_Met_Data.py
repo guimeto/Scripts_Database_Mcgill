@@ -81,12 +81,12 @@ import pandas as pd
          [28] :RH6 | Unit: [%]
          [29] :RH7 | Unit: [%]
          [30] :RH8 | Unit: [%]
-		 [13] :CMP10_Solar_uWm2_Avg | Unit: [uW/mÂ²]
+		 [13] :CMP10_Solar_uWm2_Avg | Unit: [uW/mÂ²]  # NAN
          [8] :WS_ms | Unit: [meters/second]
          [9] :Mean_WindDir | Unit: [Deg]
 		 [10] :WindDir_SD | Unit: [Deg]
          [11] :WS_ms_Max | Unit: [meters/second]
-         [12] :WindDir_Max | Unit: [Degrees]
+         [12] :WindDir_Max | Unit: [Degrees]    # NAN
 	     [2] :LWMDry_Tot | Unit: [Minutes]
          [3] :LWMCon_Tot | Unit: [Minutes]
          [4] :LWMWet_Tot | Unit: [Minutes]
@@ -94,7 +94,7 @@ import pandas as pd
 	
 	#"Explicit is better than Implicit" The Zen of Python 2nd aphorism
 	"""
-#filename = 'CR6Series_Met_data.dat'    
+filename = 'CR6Series_Met_data.dat'    
 def read_CR6Series_Met_Data(filename):
         CR6Series_Met_data = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,13,8,9,10,11,12,2,3,4])
         CR6Series_Met_data = CR6Series_Met_data.set_index('TIMESTAMP')

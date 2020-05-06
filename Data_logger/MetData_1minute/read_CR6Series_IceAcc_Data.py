@@ -43,8 +43,8 @@ def read_CR6Series_IceAcc_Data(filename):
     return(CR6Series_IceAcc_Data)  
 	
 # Tips to print columns names and index    
-#file1 = 'CR6Series_IceAcc_Data.dat'   
-#CR6Series_IceAcc_Data  = pd.read_csv(file1, sep=",", skiprows=[0,2,3]) 
-#headers = pd.read_csv(file1, sep=",", skiprows=[0])   
+#filename = 'CR6Series_IceAcc_Data.dat'   
+#CR6Series_IceAcc_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
+#headers = pd.read_csv(filename, sep=",", skiprows=[0])   
 #for col in list(CR6Series_IceAcc_Data.columns.values):
 #    print('['+str(CR6Series_IceAcc_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )

@@ -17,7 +17,8 @@ import pandas as pd
     [0] :TIMESTAMP | Unit: [TS]
     [1] :RECORD | Unit: [RN]
     [2] :SR50A_SnowDepth | Unit: [m]
-    [3] :SR50A_QualityVal | Unit: [nan]
+    [3] :SR50ASort | Unit: [nan]
+    [4] :SR50A_QualityVal | Unit: [nan]
 	
     ------------------------------------
     ------------------------------------       
@@ -25,22 +26,22 @@ import pandas as pd
 	----------------------
     [0] :TIMESTAMP | Unit: [TS]
     [2] :SR50A_SnowDepth | Unit: [m]     [float64]
-    [3] :SR50A_QualityVal | Unit: [nan]  [int64] 
+    [4] :SR50A_QualityVal | Unit: [nan]  [int64] 
     
 	#"Explicit is better than Implicit" The Zen of Python 2nd aphorism
 	"""
 #    
 def read_CR6Series_SR50A_Data(filename):
 	#Ouverture du fichier csv précédemment créé et extraction des données dans un tuple
-    CR6Series_SR50A_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,2,3])     
+    CR6Series_SR50A_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,2,4])     
     CR6Series_SR50A_Data = CR6Series_SR50A_Data.set_index('TIMESTAMP')
     CR6Series_SR50A_Data.index = pd.to_datetime(CR6Series_SR50A_Data.index)  
     return(CR6Series_SR50A_Data)   
 
 		
 # Tips to print columns names and index    
-#file1 = 'CR6Series_SR50A_Data.dat'   
-#CR6Series_SR50A_Data  = pd.read_csv(file1, sep=",", skiprows=[0,2,3]) 
-#headers = pd.read_csv(file1, sep=",", skiprows=[0])   
+#filename = 'CR6Series_SR50A_Data.dat'   
+#CR6Series_SR50A_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
+#headers = pd.read_csv(filename, sep=",", skiprows=[0])   
 #for col in list(CR6Series_SR50A_Data.columns.values):
 #    print('['+str(CR6Series_SR50A_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )

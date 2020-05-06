@@ -15,52 +15,54 @@ import pandas as pd
 	CR6Series_TPS_3100_Data AllData[] 
 	----------------------
     
-	[0] :TIMESTAMP
-    [1] :RECORD
-    [2] :RX
-    [3] :TPS_Time_Sec
-    [4] :TPS_Precip_Rate_1minAvg_mmHr
-    [5] :TPS_Total_Accum_mm
-    [6] :TPS_Pwr_Sensor_W
-    [7] :TPS_Pwr_Ref_W
-    [8] :TPS_Amb_Temp_C
-    [9] :TPS_Enc_Temp_C
-    [10] :TPS_Wind_Spd_ms
-    [11] :TPS_Coll_Eff
-    [12] :TPS_Pwr_Offset_W
-    [13] :TPS_Pwr_OffsetRad_W
-    [14] :TPS_Raw_Precip_Rate_1minAvg_mmHr
-    [15] :TPS_Raw_Precip_Rate_5minAvg_mmHr
-    [16] :TPS_Solar_Rad_Wm2
-    [17] :TPS_Net_Rad_Wm2
-    [18] :TPS_Baro_Press_mbar
-    [19] :TPS_Air_Temp_C
-    [20] :TPS_RH_perc	    
+    [0] :TIMESTAMP | Unit: [TS]
+    [1] :RECORD | Unit: [RN]
+    [2] :RX | Unit: [nan]
+    [3] :TPS_Wind_Spd_ms_Max | Unit: [nan]
+    [4] :TPS_Baro_Press_mbar_Corrected | Unit: [mbar]
+    [5] :TPS_Time_Sec | Unit: [nan]
+    [6] :TPS_Precip_Rate_1minAvg_mmHr | Unit: [nan]
+    [7] :TPS_Total_Accum_mm | Unit: [nan]
+    [8] :TPS_Pwr_Sensor_W | Unit: [nan]
+    [9] :TPS_Pwr_Ref_W | Unit: [nan]
+    [10] :TPS_Amb_Temp_C | Unit: [nan]
+    [11] :TPS_Enc_Temp_C | Unit: [nan]
+    [12] :TPS_Wind_Spd_ms | Unit: [nan]
+    [13] :TPS_Coll_Eff | Unit: [nan]
+    [14] :TPS_Pwr_Offset_W | Unit: [nan]
+    [15] :TPS_Pwr_OffsetRad_W | Unit: [nan]
+    [16] :TPS_Raw_Precip_Rate_1minAvg_mmHr | Unit: [nan]
+    [17] :TPS_Raw_Precip_Rate_5minAvg_mmHr | Unit: [nan]
+    [18] :TPS_Solar_Rad_Wm2 | Unit: [nan]
+    [19] :TPS_Net_Rad_Wm2 | Unit: [nan]
+    [20] :TPS_Baro_Press_mbar | Unit: [nan]
+    [21] :TPS_Air_Temp_C | Unit: [nan]
+    [22] :TPS_RH_perc | Unit: [nan]	    
     ------------------------------------
     ------------------------------------       
 	CR6Series_TPS_3100_Data usefulData[] 
 	----------------------
     [0] :TIMESTAMP                             [float64]
-    [14] :TPS_Raw_Precip_Rate_1minAvg_mmHr     [float64]
-    [15] :TPS_Raw_Precip_Rate_5minAvg_mmHr     [float64]
-    [10] :TPS_Wind_Spd_ms                      [float64]
-    [19] :TPS_Air_Temp_C                       [float64]
-    [5] :TPS_Total_Accum_mm                    [float64]
-    [6] :TPS_Pwr_Sensor_W                      [float64]
-    [7] :TPS_Pwr_Ref_W                         [float64]
+    [16] :TPS_Raw_Precip_Rate_1minAvg_mmHr     [float64]
+    [17] :TPS_Raw_Precip_Rate_5minAvg_mmHr     [float64]
+    [12] :TPS_Wind_Spd_ms                      [float64]
+    [21] :TPS_Air_Temp_C                       [float64]
+    [7] :TPS_Total_Accum_mm                    [float64]
+    [8] :TPS_Pwr_Sensor_W                      [float64]
+    [9] :TPS_Pwr_Ref_W                         [float64]
     
 	#"Explicit is better than Implicit" The Zen of Python 2nd aphorism
 	"""
     
 def read_CR6Series_TPS_3100_Data(filename):   
-    CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,14,15,10,19,5,6,7])     
+    CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,16,17,12,21,7,8,9])     
     CR6Series_TPS_3100_Data = CR6Series_TPS_3100_Data.set_index('TIMESTAMP')
     CR6Series_TPS_3100_Data.index = pd.to_datetime(CR6Series_TPS_3100_Data.index)  
     return(CR6Series_TPS_3100_Data)
     
-# Tips to print columns names and index    
-#file1 = 'CR6Series_TPS_3100_Data.dat'   
-#CR6Series_TPS_3100_Data  = pd.read_csv(file1, sep=",", skiprows=[0,2,3]) 
+## Tips to print columns names and index    
+#filename = 'CR6Series_TPS_3100_Data.dat'   
+#CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
 #headers = pd.read_csv(file1, sep=",", skiprows=[0])   
 #for col in list(CR6Series_TPS_3100_Data.columns.values):
 #    print('['+str(CR6Series_TPS_3100_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )
