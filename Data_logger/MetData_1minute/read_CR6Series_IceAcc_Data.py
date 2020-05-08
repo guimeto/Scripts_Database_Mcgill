@@ -39,8 +39,14 @@ import pandas as pd
 def read_CR6Series_IceAcc_Data(filename):
     CR6Series_IceAcc_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,6,7,8])     
     CR6Series_IceAcc_Data = CR6Series_IceAcc_Data.set_index('TIMESTAMP')
-    CR6Series_IceAcc_Data.index = pd.to_datetime(CR6Series_IceAcc_Data.index)  
+    CR6Series_IceAcc_Data.index = pd.to_datetime(CR6Series_IceAcc_Data.index) 
+    try :
+        CR6Series_IceAcc_Data = CR6Series_IceAcc_Data.replace(['NAN'],[-999]) 
+    except:
+        pass    
+    
     return(CR6Series_IceAcc_Data)  
+    
 	
 # Tips to print columns names and index    
 #filename = 'CR6Series_IceAcc_Data.dat'   

@@ -58,6 +58,12 @@ def read_CR6Series_TPS_3100_Data(filename):
     CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,16,17,12,21,7,8,9])     
     CR6Series_TPS_3100_Data = CR6Series_TPS_3100_Data.set_index('TIMESTAMP')
     CR6Series_TPS_3100_Data.index = pd.to_datetime(CR6Series_TPS_3100_Data.index)  
+    
+    try :
+            CR6Series_TPS_3100_Data = CR6Series_TPS_3100_Data.replace(['NAN'],[-999]) 
+    except:
+            pass
+        
     return(CR6Series_TPS_3100_Data)
     
 ## Tips to print columns names and index    

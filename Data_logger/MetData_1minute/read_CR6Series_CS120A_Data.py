@@ -50,16 +50,20 @@ def read_CR6Series_CS120A_Data(filename):
 
     CR6Series_CS120A_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,6])     
     CR6Series_CS120A_Data = CR6Series_CS120A_Data.set_index('TIMESTAMP')
-    CR6Series_CS120A_Data.index = pd.to_datetime(CR6Series_CS120A_Data.index)          
+    CR6Series_CS120A_Data.index = pd.to_datetime(CR6Series_CS120A_Data.index)
+    try :
+        CR6Series_CS120A_Data = CR6Series_CS120A_Data.replace(['NAN'],[-999]) 
+    except:
+        pass          
     return(CR6Series_CS120A_Data)
         
 # Tips to print columns names and index    
-filename = 'CR6Series_CS120A_Data.dat'   
-CR6Series_CS120A_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
-headers = pd.read_csv(filename, sep=",", skiprows=[0])   
-for col in list(CR6Series_CS120A_Data.columns.values):
-    print('['+str(CR6Series_CS120A_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )
-    
+#filename = 'CR6Series_CS120A_Data.dat'   
+#CR6Series_CS120A_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
+#headers = pd.read_csv(filename, sep=",", skiprows=[0])   
+#for col in list(CR6Series_CS120A_Data.columns.values):
+#    print('['+str(CR6Series_CS120A_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )
+#    
 
 		
 	

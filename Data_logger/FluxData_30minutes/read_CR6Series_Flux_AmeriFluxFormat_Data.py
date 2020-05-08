@@ -75,10 +75,15 @@ def read_CR6Series_Flux_AmeriFluxFormat_Data(filename):
     CR6Series_Flux_AmeriFluxFormat  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,8,10,12,14,16,17,18,22,23,36,50,51,52,53,54,55,56,57,58])     
     CR6Series_Flux_AmeriFluxFormat = CR6Series_Flux_AmeriFluxFormat.set_index('TIMESTAMP')
     CR6Series_Flux_AmeriFluxFormat.index = pd.to_datetime(CR6Series_Flux_AmeriFluxFormat.index)
-    CR6Series_Flux_AmeriFluxFormat = CR6Series_Flux_AmeriFluxFormat.replace(['NAN'],[-999]) 
+
+    try :
+        CR6Series_Flux_AmeriFluxFormat = CR6Series_Flux_AmeriFluxFormat.replace(['NAN'],[-999]) 
+    except:
+        pass
     return(CR6Series_Flux_AmeriFluxFormat)
-# Tips to print columns names and index    
-#file1 = 'K:/PROJETS/PROJET_Mcgill/Data_logger/Preparation_DataBase/data_brute/CR6Series_Flux_AmeriFluxFormat.dat'   
+    
+## Tips to print columns names and index    
+#file1 = 'CR6Series_Flux_AmeriFluxFormat.dat'   
 #CR6Series_Flux_AmeriFluxFormat  = pd.read_csv(file1, sep=",", skiprows=[0,2,3]) 
 #headers = pd.read_csv(file1, sep=",", skiprows=[0])   
 #for col in list(CR6Series_Flux_AmeriFluxFormat.columns.values):
