@@ -98,8 +98,11 @@ filename = 'CR6Series_Met_data.dat'
 def read_CR6Series_Met_Data(filename):
         CR6Series_Met_data = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,13,8,9,10,11,12,2,3,4])
         CR6Series_Met_data = CR6Series_Met_data.set_index('TIMESTAMP')
-        CR6Series_Met_data.index = pd.to_datetime(CR6Series_Met_data.index) 
-        CR6Series_Met_data = CR6Series_Met_data.replace(['NAN'],[-999]) 
+        CR6Series_Met_data.index = pd.to_datetime(CR6Series_Met_data.index)
+        try :
+            CR6Series_Met_data = CR6Series_Met_data.replace(['NAN'],[-999]) 
+        except:
+            pass
         return(CR6Series_Met_data)
 
 		
