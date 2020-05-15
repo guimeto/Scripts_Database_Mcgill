@@ -1,0 +1,6 @@
+#!/bin/bash
+. /etc/profile
+. ~/.profile  
+/unique_local/logiciels/Python-2.7.9/bin/python /NFS2_RESCUE2/stationuqam/programmes/preparation_donnees/Create_current_Rose_data.py
+/unique_local/logiciels/Python-2.7.9/bin/python /NFS2_RESCUE2/stationuqam/programmes/preparation_donnees/create_data_CSV_alldata_UQAM.py
+/unique_local/logiciels/Python-2.7.9/bin/python /NFS2_RESCUE2/stationuqam/programmes/preparation_donnees/get_data_toradial_UQAM.py

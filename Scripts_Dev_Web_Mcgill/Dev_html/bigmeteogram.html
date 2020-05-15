@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>  
+    <head>
+<link href="bigmeteogram.css" rel="stylesheet">
+<title>Météogramme du jour - Station UQÀM</title>
+<!-- Highchart -->
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/heatmap.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/boost-canvas.js"></script>
+<script src="https://code.highcharts.com/modules/boost.js"></script>
+
+<div class="orange-divider"></div>
+<div class="clear"></div>
+<div class="wrapper">
+  <section id="para">
+    <div class="orange-divider"></div>
+    <h4> - Températures et précipitation historiques quotidiennes de la station - </h4>
+    <div class="orange-divider"></div>
+    <br>
+  </section>
+</div>
+</head>   
+    
+    
+ <div id="graph">
+         <div id="graphdiv" style="min-width: 1000px; max-width: 1000px; height: 500px; margin: 0 auto">
+         </div>
+</div>
+
+       <div class="wrapper">
+        <section id="paragraph">
+            <input id="Précipitation totale" type="checkbox" checked>Précipitation totale<br/>
+            <input id="Température point de rosée" type="checkbox" checked>Température point de rosée<br/>
+             <input id="Température"type="checkbox" checked>Température<br/>
+        </section>
+        </div>
+
+<div id="graph">
+         <div id="graphdiv2" style="min-width: 1000px; max-width: 1000px; height: 500px; margin: 0 auto">
+         </div>
+</div>
+      <script type='text/javascript' src='js/'></script>
+
+<div class="wrapper">
+  <section id="paragraph">
+    <p> <b>Réalisation: Guillaume Dueymes</b></p>
+    <p id="para2"> </p>
+  </section>
+</div>
+
+<script type='text/javascript' src='bigmeteogram.js'></script>
+
+<div id="glyph"><a href="#para">
+  <span class="glyphicon glyphicon-chevron-up"></span>
+</a></div>
+</html>

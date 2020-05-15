@@ -1,0 +1,87 @@
+<!DOCTYPE html> {% load static %}
+
+<html>
+<header>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    {% block header %}
+    {% endblock %}
+</header>
+<div id="header"></div>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
+   <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <h1 class="d-inline">STATION ESCER UQÀM<span class="orange">.</span></h1>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visualisation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'meteogram' %}">Météogramme</a></li>
+                        <li><a href="{% url 'bigmeteogram' %}">Évolution historique</a></li>
+                        <li><a href="{% url 'radialGraphic' %}">Graphique radial</a></li>
+                        <li><a href="{% url 'windrose' %}">Rose des vents</a></li>
+                        <li><a href="{% url 'disdrometer' %}">Disdromètre</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instrumentation<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                     <li><a href="{% url 'anemometer' %}">Anémomètre à coupelles</a></li>
+                     <li><a href="{% url 'weathercock' %}">Girouette</a></li>
+                     <li><a href="{% url 'ultrasonicAnemometer' %}">Anémomètre ultrasonique</a></li>
+                     <li><a href="{% url 'raingauge' %}">Pluviomètre</a></li>
+                     <li><a href="{% url 'disdro' %}">Disdromètre</a></li>
+                     <li><a href="{% url 'radiometer' %}">Radiomètres</a></li>
+                     <li><a href="{% url 'temperatureHumidity' %}">Température - Humidité</a></li>
+                     <li><a href="{% url 'datalogger' %}">Datalogger</a></li>
+                 </ul>
+             </li>
+             
+             <li><a href="#">Données</a></li>
+             <li class="dropdown">
+                <a href="{% url 'home' %}" class="dropdown-toggle" data-toggle="dropdown">À propos<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'history' %}" disabled>Historique</a></li>
+                    <li><a href="{% url 'team' %}" disabled>Équipe</a></li>
+
+                    
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+
+<footer>
+   <div class="wrapper">
+       <h1>STATION ESCER UQÀM<span class="orange">.</span></h1>
+       <div class="copyright"> Copyright @ {% now "Y" %}. </div>
+   </div>
+   
+</footer>
+
+
+</body>
+
+</html>

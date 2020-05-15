@@ -1,0 +1,10 @@
+#!/bin/bash
+. /etc/profile
+. ~/.profile  
+exec 1 > test.txt
+module load python2
+python /NFS2_RESCUE2/stationuqam/programmes/preparation_donnees/disdro_picture.py
+python /NFS2_RESCUE2/stationuqam/programmes/preparation_donnees/disdro_time_serie.py
+
+
+#/unique_local/logiciels/Python-2.7.9/bin/python

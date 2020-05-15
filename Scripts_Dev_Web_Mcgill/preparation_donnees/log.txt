@@ -1,0 +1,84 @@
+==== Unified Environment .profile - Thu Jul 11 14:58:02 EDT 2019 ===
+=== Unified Environment .profile (preamble) ===
+process 114164 active
+process 25157 active
+process 26918 active
+process 53693 active
+process 85259 active
+process 85262 active
+=== Unified Environment .profile (postamble) ===
+=== THIS IS A BATCH or SSH SESSION ===
+====================================================================
+                           LOCAL NEWS
+2015/09/30 : to have a different bash history file for each server 
+             pour avoir un fichier historique de commandes bash separe pour chaque serveur
+             touch $HOME/.bash_history.local
+
+2015/12/27:  first release of the python_rpn package (interfaces to rmnlib and vgrid)
+             premiere version du logiciel python_rpn (interfaces pour rmnlib et vgrid)
+             . s.ssmuse.dot rpnpy
+                import rpnpy.vgd.all as vgd
+                import rpnpy.librmn.all as rmn
+
+2017/11/28:  r.diag 6.4.1 incluant convertisseur fst-netcdf 2.3.1
+             r.diag 6.4.1 with fst/netcdf converter 2.3.1
+             . s.ssmuse.dot diagtools-6.4.1
+====================================================================
+========================= IMPORTANT =========================
+S.V.P ne pas utiliser d'espaces et de caractères accentués 
+      dans les noms de fichiers et de répertoires
+PLEASE do not use spaces nor accented characters in file
+      or directory names
+============================================================
+=== Unified Environment BASE SETUP using /unique/armnssm/ECssm/ssm-domains-base/setup/v_001 - Thu Jul 11 14:58:02 EDT 2019 ===
+import librairies
+On est dans le code !! 
+On est toujours dans le code !! 
+Debut Sauvegarde!
+sauvegarde current
+Fin du code
+sauvegarde futur
+cleaning up temporary directories
+removing TMPDIR = /tmp/dueymes/85262
+==== Unified Environment .profile - Thu Jul 11 14:59:01 EDT 2019 ===
+=== Unified Environment .profile (preamble) ===
+process 114164 active
+process 25157 active
+process 26918 active
+process 53693 active
+process 86836 active
+process 86840 active
+=== Unified Environment .profile (postamble) ===
+=== THIS IS A BATCH or SSH SESSION ===
+====================================================================
+                           LOCAL NEWS
+2015/09/30 : to have a different bash history file for each server 
+             pour avoir un fichier historique de commandes bash separe pour chaque serveur
+             touch $HOME/.bash_history.local
+
+2015/12/27:  first release of the python_rpn package (interfaces to rmnlib and vgrid)
+             premiere version du logiciel python_rpn (interfaces pour rmnlib et vgrid)
+             . s.ssmuse.dot rpnpy
+                import rpnpy.vgd.all as vgd
+                import rpnpy.librmn.all as rmn
+
+2017/11/28:  r.diag 6.4.1 incluant convertisseur fst-netcdf 2.3.1
+             r.diag 6.4.1 with fst/netcdf converter 2.3.1
+             . s.ssmuse.dot diagtools-6.4.1
+====================================================================
+========================= IMPORTANT =========================
+S.V.P ne pas utiliser d'espaces et de caractères accentués 
+      dans les noms de fichiers et de répertoires
+PLEASE do not use spaces nor accented characters in file
+      or directory names
+============================================================
+=== Unified Environment BASE SETUP using /unique/armnssm/ECssm/ssm-domains-base/setup/v_001 - Thu Jul 11 14:59:01 EDT 2019 ===
+import librairies
+On est dans le code !! 
+On est toujours dans le code !! 
+Debut Sauvegarde!
+sauvegarde current
+Fin du code
+sauvegarde futur
+cleaning up temporary directories
+removing TMPDIR = /tmp/dueymes/86840
