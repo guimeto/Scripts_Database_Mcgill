@@ -11,8 +11,7 @@
 import pandas as pd
 
 """   
-   "TOA5","CR6Series","CR6","10158","CR6.Std.09.02 CR6-WIFI.04.00.01","CPU:McGill_University_Program_Version32.CR6 Feb 3rd.cr6","64318","SDMS40_Data"    
-	CR6Series_SDMS40_Data AllData[] 
+   "TOA5","CR6Series","CR6","10158","CR6.Std.09.02 CR6-WIFI.04.00.01","CPU:McGill_University_Program_Version34 May 7 2020.CR6","30372","SDMS40_Data"
 	----------------------    
     [0] :TIMESTAMP | Unit: [TS]                                     [1] :RECORD | Unit: [RN]
     [2] :SDMS40_Depth_Avg | Unit: [mm]                              [3] :SDMS40_Board_Temperature | Unit: [Deg C]
@@ -59,19 +58,19 @@ import pandas as pd
 	CR6Series_SDMS40_Data usefulData[] 
 	----------------------
     [0] :TIMESTAMP
-    [2] :SDMS40_Depth_Avg  [int64]   
+    [2] :SDMS40_Depth_Avg | Unit: [mm]  
     
 	#"Explicit is better than Implicit" The Zen of Python 2nd aphorism
 	"""
-## Tips to print columns names and index    
+### Tips to print columns names and index    
 #filename = 'CR6Series_SDMS40_Data.dat'   
 #CR6Series_SDMS40_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
 #headers = pd.read_csv(filename, sep=",", skiprows=[0])   
 #for col in list(CR6Series_SDMS40_Data.columns.values):
 #    print('['+str(CR6Series_SDMS40_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )
-
-    
-    
+#
+#    
+#    
 def read_CR6Series_SDMS40_Data(filename):
 	#Ouverture du fichier csv précédemment créé et extraction des données dans un tuple
     CR6Series_SDMS40_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,2])     

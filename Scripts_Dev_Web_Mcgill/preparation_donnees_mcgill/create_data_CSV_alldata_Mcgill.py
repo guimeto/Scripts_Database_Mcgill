@@ -38,11 +38,11 @@ cnx = mysql.connector.connect(database = 'eos_mcgill_uqam', user = 'station', pa
 startdate = start_utc.strftime("%Y-%m-%d")+'%'
 enddate   = end_utc.strftime("%Y-%m-%d")+'%'
 
-query = ("select Date, Temp1_Avg, Temp2_Avg, Temp3_Avg, Temp4_Avg, Temp5_Avg, Temp6_Avg, Temp7_Avg, RH1, RH2, RH3, RH4, RH5, RH6, RH7 from gault_metdata where Date BETWEEN %(mindate)s AND %(maxdate)s")
-
+#query = ("select Date, Temp1_Avg, Temp2_Avg, Temp3_Avg, Temp4_Avg, Temp5_Avg, Temp6_Avg, Temp7_Avg, RH1, RH2, RH3, RH4, RH5, RH6, RH7 from gault_metdata where Date BETWEEN %(mindate)s AND %(maxdate)s")
+query = ("select * from gault_metdata where Date BETWEEN %(mindate)s AND %(maxdate)s")
 df = pd.read_sql_query(query, con=cnx, params={'mindate': startdate, 'maxdate': enddate})
    
-df = df.set_index('Date')
+df = df.set_index('DATE')
 df = df.resample('5Min').mean()
 
 df.to_csv('./data/station_data.csv')

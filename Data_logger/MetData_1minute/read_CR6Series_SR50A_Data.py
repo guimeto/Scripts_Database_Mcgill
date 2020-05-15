@@ -11,8 +11,7 @@
 import pandas as pd
 
 """   
-"TOA5","CR6Series","CR6","10158","CR6.Std.09.02 CR6-WIFI.04.00.01","CPU:McGill_University_Program_Version32.CR6 Feb 3rd.cr6","64318","SR50A_Data"      
-	CR6Series_SR50A_Data AllData[] 
+"TOA5","CR6Series","CR6","10158","CR6.Std.09.02 CR6-WIFI.04.00.01","CPU:McGill_University_Program_Version34 May 7 2020.CR6","30372","SR50A_Data"
 	----------------------
     [0] :TIMESTAMP | Unit: [TS]
     [1] :RECORD | Unit: [RN]

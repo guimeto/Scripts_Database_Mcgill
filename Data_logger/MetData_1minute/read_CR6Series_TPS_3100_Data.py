@@ -11,8 +11,8 @@
 import pandas as pd
 
 """   
-"TOA5","CR6Series","CR6","10158","CR6.Std.09.02 CR6-WIFI.04.00.01","CPU:McGill_University_Program_Version32.CR6 Feb 3rd.cr6","64318","TPS_3100_Data"       
-	CR6Series_TPS_3100_Data AllData[] 
+"TOA5","CR6Series","CR6","10158","CR6.Std.09.02 CR6-WIFI.04.00.01","CPU:McGill_University_Program_Version34 May 7 2020.CR6","30372","TPS_3100_Data"
+
 	----------------------
     
     [0] :TIMESTAMP | Unit: [TS]
@@ -50,12 +50,13 @@ import pandas as pd
     [7] :TPS_Total_Accum_mm                    [float64]
     [8] :TPS_Pwr_Sensor_W                      [float64]
     [9] :TPS_Pwr_Ref_W                         [float64]
+    [4] :TPS_Baro_Press_mbar_Corrected | Unit: [mbar]
     
 	#"Explicit is better than Implicit" The Zen of Python 2nd aphorism
 	"""
     
 def read_CR6Series_TPS_3100_Data(filename):   
-    CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,16,17,12,21,7,8,9])     
+    CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3], usecols=[0,16,17,12,21,7,8,9,4])     
     CR6Series_TPS_3100_Data = CR6Series_TPS_3100_Data.set_index('TIMESTAMP')
     CR6Series_TPS_3100_Data.index = pd.to_datetime(CR6Series_TPS_3100_Data.index)  
     
@@ -69,7 +70,7 @@ def read_CR6Series_TPS_3100_Data(filename):
 ## Tips to print columns names and index    
 #filename = 'CR6Series_TPS_3100_Data.dat'   
 #CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
-#headers = pd.read_csv(file1, sep=",", skiprows=[0])   
+#headers = pd.read_csv(filename, sep=",", skiprows=[0])   
 #for col in list(CR6Series_TPS_3100_Data.columns.values):
 #    print('['+str(CR6Series_TPS_3100_Data.columns.get_loc(col))+'] :' + col + ' | Unit: [' +str(headers.iloc[0][col])+']' )
 #    
