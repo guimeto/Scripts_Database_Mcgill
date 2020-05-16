@@ -68,7 +68,7 @@ def read_CR6Series_TPS_3100_Data(filename):
     return(CR6Series_TPS_3100_Data)
     
 ## Tips to print columns names and index    
-#filename = 'CR6Series_TPS_3100_Data.dat'   
+#filename = './restore/TPS_3100_Data_05_13_2020.dat'   
 #CR6Series_TPS_3100_Data  = pd.read_csv(filename, sep=",", skiprows=[0,2,3]) 
 #headers = pd.read_csv(filename, sep=",", skiprows=[0])   
 #for col in list(CR6Series_TPS_3100_Data.columns.values):
