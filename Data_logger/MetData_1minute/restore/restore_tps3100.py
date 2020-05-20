@@ -9,7 +9,7 @@ from bd_eos import bd_eos
 import glob
 import pandas as pd 
 
-for f in glob.glob('/storage1/gault/LoggerData/TPS_3100_Data/2020/01/*.dat'):   
+for f in glob.glob('/roddy/storage1/gault/LoggerData/TPS_3100_Data/2020/01/*.dat'):   
     print(f)  
     # f = './restore/TPS_3100_Data_02_28_2020.dat' 
     
@@ -39,11 +39,29 @@ for f in glob.glob('/storage1/gault/LoggerData/TPS_3100_Data/2020/01/*.dat'):
  
         for i in range (0,len(TPS_3100_Data)-1): 
             
-            queryReleveMeteo = ("INSERT IGNORE INTO gault_metdata (date,"
-                                "TPS_Total_Accum_mm, TPS_Pwr_Sensor_W, TPS_Pwr_Ref_W, TPS_Wind_Spd_ms, TPS_Raw_Precip_Rate_1minAvg_mmHr, TPS_Raw_Precip_Rate_5minAvg_mmHr, TPS_Air_Temp_C)"  
-                       
-                            "VALUES('"+TPS_3100_Data.index.strftime('%Y-%m-%d %H:%M:%S')[-i]+
-                            "','"+str(TPS_3100_Data.iloc[-i,0])+"','"+str(TPS_3100_Data.iloc[-i,1])+"','"+str(TPS_3100_Data.iloc[-i,2])+"','"+str(TPS_3100_Data.iloc[-i,3])+"','"+str(TPS_3100_Data.iloc[-i,4])+"','"+str(TPS_3100_Data.iloc[-i,5])+"','"+str(TPS_3100_Data.iloc[-i,6])+"')")
+            queryReleveMeteo = ("INSERT IGNORE INTO gault_metdata \
+                               (date,\
+                                TPS_Total_Accum_mm, \
+                                TPS_Pwr_Sensor_W, \
+                                TPS_Pwr_Ref_W,\
+                                TPS_Wind_Spd_ms,\
+                                TPS_Raw_Precip_Rate_1minAvg_mmHr,\
+                                TPS_Raw_Precip_Rate_5minAvg_mmHr,\
+                                TPS_Air_Temp_C) VALUES('"+TPS_3100_Data.index.strftime('%Y-%m-%d %H:%M:%S')[-i]+
+                            "','"+str(TPS_3100_Data.iloc[-i,0])+"','"+
+                            str(TPS_3100_Data.iloc[-i,1])+"','"+
+                            str(TPS_3100_Data.iloc[-i,2])+"','"+
+                            str(TPS_3100_Data.iloc[-i,3])+"','"+
+                            str(TPS_3100_Data.iloc[-i,4])+"','"+
+                            str(TPS_3100_Data.iloc[-i,5])+"','"+
+                            str(TPS_3100_Data.iloc[-i,6])+"') ON DUPLICATE KEY UPDATE \
+                            TPS_Total_Accum_mm = VALUES(TPS_Total_Accum_mm), \
+                            TPS_Pwr_Sensor_W   = VALUES(TPS_Pwr_Sensor_W),\
+                            TPS_Pwr_Ref_W      = VALUES(TPS_Pwr_Ref_W), \
+                            TPS_Wind_Spd_ms    = VALUES(TPS_Wind_Spd_ms), \
+                            TPS_Raw_Precip_Rate_1minAvg_mmHr = VALUES(TPS_Raw_Precip_Rate_1minAvg_mmHr), \
+                            TPS_Raw_Precip_Rate_5minAvg_mmHr = VALUES(TPS_Raw_Precip_Rate_5minAvg_mmHr), \
+                            TPS_Air_Temp_C = VALUES(TPS_Air_Temp_C)")
         
             print(queryReleveMeteo)
             bd_eos(queryReleveMeteo) 
