@@ -19,6 +19,6 @@ query = ("select * from gault_metdata ORDER BY DATE DESC LIMIT 1;")
 
 df = pd.read_sql_query(query, con=cnx)
 df = df.set_index('DATE')
-
-df.to_csv('./data/station_last_data.csv')
+df = df.round(2)
+df.to_csv('/aos/home/gdueymes/tmp/prepare_data_website/Sentinel_1/data/station_last_Metdata.csv')
 

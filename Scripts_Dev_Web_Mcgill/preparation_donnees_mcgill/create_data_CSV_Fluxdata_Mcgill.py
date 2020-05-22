@@ -11,9 +11,11 @@ warnings.filterwarnings("ignore")
 now = datetime.datetime.now()
 yearf = now.year
 monthf = now.month
-monthi = monthf-1
 
-day_start=1
+yeari = (now - td(days = 7)).year
+monthi = (now - td(days = 7)).month # on remonte de 1 semaines
+day_start= (now - td(days = 7)).day
+
 day_end = pd.date_range('{}-{}'.format(yearf, monthf), periods=1, freq='M').day.tolist()[0]
 
 ## calcul du nombre d heures pour passer en UTC 
@@ -21,9 +23,10 @@ test_local=datetime.datetime.now()
 test_utc=datetime.datetime.utcnow()
 test_local=test_local.replace(minute=0, second=0, microsecond=0)
 test_utc=test_utc.replace(minute=0, second=0, microsecond=0)
+
 delta_h=(test_utc-test_local).total_seconds()/3600  # 3600 secondes dans 1 heure
 
-start_local=datetime.datetime(yearf,monthi,day_start)
+start_local = datetime.datetime(yeari,monthi,day_start)
 end_local=datetime.datetime(yearf,monthf,day_end)
 
 start_utc=start_local+td(hours=delta_h)
@@ -38,12 +41,12 @@ cnx = mysql.connector.connect(database = 'eos_mcgill_uqam', user = 'station', pa
 startdate = start_utc.strftime("%Y-%m-%d")+'%'
 enddate   = end_utc.strftime("%Y-%m-%d")+'%'
 
-#query = ("select Date, Temp1_Avg, Temp2_Avg, Temp3_Avg, Temp4_Avg, Temp5_Avg, Temp6_Avg, Temp7_Avg, RH1, RH2, RH3, RH4, RH5, RH6, RH7 from gault_metdata where Date BETWEEN %(mindate)s AND %(maxdate)s")
-query = ("select * from gault_metdata where Date BETWEEN %(mindate)s AND %(maxdate)s")
+query = ("select * from gault_fluxdata where Date BETWEEN %(mindate)s AND %(maxdate)s")
 df = pd.read_sql_query(query, con=cnx, params={'mindate': startdate, 'maxdate': enddate})
    
 df = df.set_index('DATE')
-df = df.resample('5Min').mean()
+df = df.replace(to_replace = -999, value =np.nan)
+df = df.round(3)
 
-df.to_csv('./data/station_data.csv')
+df.to_csv('/aos/home/gdueymes/tmp/prepare_data_website/Sentinel_1/data/station_flux_data.csv')
 

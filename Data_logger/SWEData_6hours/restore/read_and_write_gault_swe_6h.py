@@ -17,7 +17,7 @@ CR6Series_CS725_6Hour_Data = read_CR6Series_CS725_6Hour_Data(CR6Series_CS725_6Ho
 
 
 queryReleveMeteo = ("INSERT INTO gault_swe_6h (date,"
-                        "CS725_SWE_K, CS725_SWE_TL)"                      
+                        "CS725_SWE_K, CS725_SWE_K)"                      
                     "VALUES('"+CR6Series_CS725_6Hour_Data.index.strftime('%Y-%m-%d %H:%M:%S')[-1]+
                     "','"+str(CR6Series_CS725_6Hour_Data.iloc[-1,0])+"','"+str(CR6Series_CS725_6Hour_Data.iloc[-1,1])+
                     "')")

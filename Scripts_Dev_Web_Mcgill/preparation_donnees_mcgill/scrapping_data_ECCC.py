@@ -14,12 +14,12 @@ import numpy as np
 # Téléchargement de la page web Sentinel 1 : Mont saint hilaire 
 page = requests.get("https://weather.gc.ca/city/pages/qc-92_metric_e.html")
 
-print('On est dans le code !! ')
+#print('On est dans le code !! ')
 
 #Utilisation de BeautifulSoup pour analyser le code html
 from bs4 import BeautifulSoup
 
-print('On est toujours dans le code !! ')
+#print('On est toujours dans le code !! ')
 # on va analyser le contenu précédent avec BeautifulSoup 
 soup = BeautifulSoup(page.content,'html.parser')
 
@@ -63,10 +63,10 @@ weather = pd.DataFrame({"Condition": short_desc,
                         "visibility":   visibilite,
                        })
 
-print('Debut Sauvegarde!')
+#print('Debut Sauvegarde!')
 
-weather.to_csv("./data/current.csv", header = True, sep = ',',encoding='utf-8')
-print('sauvegarde current')
+weather.to_csv("/aos/home/gdueymes/tmp/prepare_data_website/Sentinel_1/data/current.csv", header = True, sep = ',',encoding='utf-8')
+#print('sauvegarde current')
 period_tags = soup.find(id="mainContent")
 row1 = period_tags.find_all(class_="div-row div-row1 div-row-head")
 
@@ -91,7 +91,7 @@ weather_f = pd.DataFrame({"Period": periods,
                        "temperature_f": temperature_2,
                        "conditions_f":conditions_f,
                        })
-print('Fin du code')    
+#print('Fin du code')    
 
-weather_f.to_csv("./data/forecast.csv", header = True, sep = ',',encoding='utf-8')
-print('sauvegarde futur')
+weather_f.to_csv("/aos/home/gdueymes/tmp/prepare_data_website/Sentinel_1/data/forecast.csv", header = True, sep = ',',encoding='utf-8')
+#print('sauvegarde futur')

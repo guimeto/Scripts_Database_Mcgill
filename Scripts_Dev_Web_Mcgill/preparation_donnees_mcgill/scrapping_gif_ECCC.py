@@ -21,7 +21,7 @@ row3 = period_tags.find_all(class_="div-row div-row2 div-row-data")
 i = 0
 for images in row3:
     s = images.find('img')
-    f = open('./data/' + str(i) + '.gif', 'wb')
+    f = open('/aos/home/gdueymes/tmp/prepare_data_website/Sentinel_1/data/' + str(i) + '.gif', 'wb')
     f.write(request.urlopen("https://meteo.gc.ca/weathericons/"+str(s)[str(s).find('gif')-3:(str(s).find('gif'))-1]+".gif").read())
     f.close() 
     i += 1 
